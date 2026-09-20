@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>IRÉ | ESTILO QUE TRANSFORMA</title>
+  <link rel="shortcut icon" href="img/logo.jpeg" type="image/x-icon">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Google Fonts: Montserrat & Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gema: {
+              softPink: '#F9DCD8',
+              softPinkDark: '#F4C7C0',
+              softPinkBorder: '#F3D5CF',
+              fuchsia: '#F50087',
+              fuchsiaDark: '#D90076',
+              fuchsiaLight: '#FF75B6',
+              purple: '#8F1234',
+              purpleDark: '#6C0D2A',
+              dark: '#333333',
+              pureBlack: '#000000',
+              yappy: '#00b4d8'
+            }
+          },
+          fontFamily: {
+            sans: ['"Montserrat"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif']
+          },
+          aspectRatio: {
+            '3/4': '3 / 4'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --color-accent-pink: #F50087;
+      --color-secondary-soft-pink: #F9DCD8;
+      --color-secondary-wine: #8F1234;
+      --color-neutral-ivory: #FFFBF2;
+      --color-neutral-taupe: #D7B7A1;
+      --color-text-main: #333333;
+      --font-serif-headings: 'Playfair Display', serif;
+      --font-sans-serif-body: 'Montserrat', sans-serif;
+      --radius-soft: 8px;
+      --shadow-soft: 0 10px 25px rgba(143, 18, 52, 0.08);
+      --shadow-button: 0 12px 24px rgba(245, 0, 135, 0.18);
+    }
+
+    body {
+      font-family: var(--font-sans-serif-body);
+      background:
+        radial-gradient(circle at top left, rgba(245, 0, 135, 0.06), transparent 22%),
+        linear-gradient(180deg, #fffafc 0%, #fffaf7 100%);
+      color: var(--color-text-main);
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .curvologo {
+      border-radius: 40%;
+      border: 2px solid rgba(245, 0, 135, 0.18);
+      box-shadow: 0 12px 30px rgba(143, 18, 52, 0.08);
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-serif-headings);
+      font-weight: 400;
+      color: var(--color-secondary-wine);
+      letter-spacing: 0.02em;
+    }
+
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .cart-drawer-slide {
+      transition: transform 0.28s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .product-title-clamp {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      line-height: 1.15;
+      min-height: 2.3em;
+    }
+    /* Collapsible top banner transition */
+    #topAnnouncementsWrapper {
+      max-height: 100px;
+      opacity: 1;
+      overflow: hidden;
+      transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease-out;
+    }
+    #topAnnouncementsWrapper.collapsed {
+      max-height: 0;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.5rem;
+      border: none;
+      border-radius: var(--radius-soft);
+      background: var(--color-accent-pink);
+      color: #ffffff;
+      font-family: var(--font-sans-serif-body);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      box-shadow: var(--shadow-button);
+    }
+
+    .btn-primary:hover {
+      background: #d80074;
+      transform: translateY(-1px);
+      box-shadow: 0 14px 28px rgba(245, 0, 135, 0.22);
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid rgba(143, 18, 52, 0.06);
+      border-radius: var(--radius-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 1.25rem;
+    }
+
+    .bg-soft-pink {
+      background: var(--color-secondary-soft-pink);
+    }
+
+    .brand-logo {
+      display: block;
+      width: auto;
+      max-height: 3.3rem;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 15px rgba(143, 18, 52, 0.12));
+    }
+
+    .brand-mark {
+      border: 1px solid rgba(143, 18, 52, 0.08);
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 12px 28px rgba(143, 18, 52, 0.08);
+    }
+
+    .premium-header {
+      box-shadow: 0 12px 32px rgba(128, 52, 72, 0.06);
+      border-bottom: 1px solid rgba(143, 18, 52, 0.08);
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+    }
+
+    .editorial-hero {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(143, 18, 52, 0.08);
+      background: linear-gradient(135deg, rgba(249, 220, 216, 0.9), rgba(255, 255, 255, 0.96));
+      box-shadow: 0 20px 50px rgba(116, 40, 63, 0.08);
+    }
+
+    .editorial-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+      pointer-events: none;
+    }
+
+    .editorial-kicker {
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--color-accent-pink);
+    }
+
+    .editorial-title {
+      font-size: clamp(2.4rem, 4vw, 5rem);
+      line-height: 0.92;
+      letter-spacing: -0.06em;
+      color: var(--color-secondary-wine);
+    }
+
+    .editorial-subtitle {
+      color: rgba(51, 51, 51, 0.78);
+      line-height: 1.7;
+      max-width: 34rem;
+    }
+
+    .hero-highlight-card {
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(143, 18, 52, 0.08);
+      box-shadow: 0 16px 38px rgba(47, 17, 25, 0.08);
+      backdrop-filter: blur(4px);
+    }
+
+    .product-shell {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(143, 18, 52, 0.06);
+      border-radius: 1.2rem;
+      box-shadow: 0 18px 30px rgba(125, 45, 69, 0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .product-shell:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 36px rgba(125, 45, 69, 0.1);
+    }
+
+    .product-shell .product-image-wrap {
+      background: linear-gradient(180deg, rgba(249, 220, 216, 0.35), rgba(255, 255, 255, 0.92));
+    }
+
+    .product-shell .product-image {
+      filter: saturate(1.05);
+    }
+
+    .product-shell .price-tag {
+      background: rgba(245, 0, 135, 0.08);
+      color: var(--color-accent-pink);
+    }
+
+    .boutique-footer {
+      background: linear-gradient(180deg, #2e2025 0%, #1b1217 100%);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex flex-col bg-[#fff9fb] pb-20 sm:pb-8 selection:bg-gema-fuchsia selection:text-white">
+
+  <!-- Header Container -->
+  <header class="premium-header sticky top-0 z-40 transition-all">
+    <div id="topAnnouncementsWrapper">
+      <div class="bg-gradient-to-r from-gema-fuchsia via-gema-purple to-gema-fuchsia text-white text-[10px] sm:text-xs py-1.5 px-3 text-center font-medium flex items-center justify-center gap-2">
+        <i class="fa-solid fa-truck-fast text-[11px]"></i>
+        <span>¡ENVÍO <strong>GRATIS</strong> desde <strong>$25.00</strong> en todo Panamá! 🇵🇦</span>
+      </div>
+
+      <div class="bg-[#fff4f8] border-b border-gema-softPinkDark/70 px-3 py-1 flex items-center justify-between text-[11px] text-gema-dark">
+        <div class="flex items-center gap-1.5">
+          <span class="bg-[#0094b6] text-white font-bold px-1.5 py-0.2 rounded text-[9px] uppercase tracking-wider">Yappy</span>
+          <span class="font-medium text-stone-700">Paga al <strong>6978-9005</strong></span>
+          <button onclick="copyYappyNumber()" class="text-gema-fuchsia hover:text-gema-fuchsiaDark text-[10px] underline flex items-center gap-0.5 ml-1" title="Copiar número de Yappy">
+            <i class="fa-regular fa-copy"></i> Copiar
+          </button>
+        </div>
+        <div class="flex items-center gap-1 text-[10px] text-stone-600 font-medium">
+          <i class="fa-solid fa-money-bill-wave text-emerald-600"></i>
+          <span>Aceptamos Efectivo</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-2.5 sm:px-4 py-2 sm:py-3">
+      <div class="flex items-center justify-between gap-2">
+        <a href="#" class="flex items-center gap-2 sm:gap-3 shrink-0">
+          <div class="brand-mark rounded-full p-1.5 sm:p-2">
+            <img src="img/logo.jpeg" alt="IRÉ logo" class="brand-logo h-10 w-auto sm:h-12 rounded-full" />
+          </div>
+          <div class="leading-none">
+            <p class="font-serif text-lg sm:text-xl tracking-[0.18em] text-gema-purple">IRÉ</p>
+            <p class="text-[7px] sm:text-[8px] uppercase tracking-[0.24em] text-stone-500 mt-1">Estilo que transforma</p>
+          </div>
+        </a>
+
+        <div class="flex items-center gap-1.5">
+          <a href="https://wa.me/50764382676?text=Hola%20Irene,%20estoy%20viendo%20la%20tienda%20IR%C3%89%20y%20tengo%20una%20consulta" target="_blank" class="flex items-center gap-1 bg-emerald-600 hover:bg-emerald-700 text-white px-2.5 py-1.5 rounded-full text-[11px] font-semibold shadow-sm" title="Chat directo con Irene">
+            <i class="fa-brands fa-whatsapp text-sm"></i>
+            <span class="text-[10px] sm:text-xs">Irene</span>
+          </a>
+
+          <button onclick="toggleCartDrawer(true)" class="relative flex items-center justify-center bg-gema-dark text-white px-3 py-1.5 rounded-full text-xs font-semibold shadow-sm active:scale-95 transition-transform" aria-label="Ver Bolsa de compras">
+            <i class="fa-solid fa-bag-shopping text-gema-fuchsia mr-1.5 text-xs"></i>
+            <span class="text-[11px] font-medium">Bolsa</span>
+            <span id="headerCartCount" class="ml-1.5 bg-gema-fuchsia text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">0</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 pt-2 pb-0.5">
+        <div id="categoryFilters" class="flex items-center gap-1.5 overflow-x-auto hide-scrollbar flex-1 min-w-0"></div>
+
+        <label class="shrink-0 flex items-center gap-1.5 bg-white border border-gema-softPinkDark rounded-full px-2 py-1 text-[10px] font-semibold text-gema-dark shadow-sm">
+          <i class="fa-solid fa-arrow-down-short-wide text-gema-fuchsia text-[10px]"></i>
+          <select id="sortSelect" class="bg-transparent outline-none text-[10px] font-semibold text-gema-dark pr-1">
+            <option value="position">Posición</option>
+            <option value="price-asc">Precio: menor a mayor</option>
+            <option value="price-desc">Precio: mayor a menor</option>
+            <option value="rating-desc">Mejor valorados</option>
+          </select>
+        </label>
+      </div>
+    </div>
+  </header>
+
+  <section class="max-w-7xl mx-auto px-2.5 sm:px-4 w-full pt-3 sm:pt-5">
+    <div class="editorial-hero rounded-[28px] p-4 sm:p-6 lg:p-8">
+      <div class="grid lg:grid-cols-[1.15fr_0.85fr] items-center gap-4 lg:gap-6">
+        <div class="relative z-10">
+          <div class="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+            <div class="brand-mark rounded-full p-1.5">
+              <img src="img/logo.jpeg" alt="IRÉ logo" class="h-8 w-8 sm:h-10 sm:w-10 rounded-full object-cover" />
+            </div>
+            <span class="editorial-kicker">IRÉ boutique</span>
+          </div>
+          <h1 class="editorial-title mt-3 sm:mt-4">ESTILO QUE<br>TRANSFORMA</h1>
+          <p class="editorial-subtitle mt-3 sm:mt-4 text-sm sm:text-base">Descubre piezas con personalidad, detalle editorial y ese toque femenino que elevan cada día.</p>
+          <div class="mt-4 sm:mt-5 flex flex-wrap items-center gap-2 sm:gap-3">
+            <button onclick="setCategory('all')" class="btn-primary rounded-full px-4 py-2.5 text-[11px] sm:text-xs">Ver colección</button>
+            <button onclick="toggleCartDrawer(true)" class="bg-white text-gema-purple border border-gema-softPinkDark rounded-full px-4 py-2.5 text-[11px] sm:text-xs font-semibold shadow-sm">Mi bolsa</button>
+          </div>
+          <div class="mt-5 flex items-center gap-3 flex-wrap text-[10px] sm:text-[11px] text-stone-600">
+            <span class="inline-flex items-center gap-1.5 bg-white/80 border border-gema-softPinkDark rounded-full px-2.5 py-1.5"><i class="fa-solid fa-truck-fast text-gema-fuchsia"></i> Envío gratis desde $25</span>
+            <span class="inline-flex items-center gap-1.5 bg-white/80 border border-gema-softPinkDark rounded-full px-2.5 py-1.5"><i class="fa-solid fa-shield-heart text-gema-fuchsia"></i> Atención personalizada</span>
+          </div>
+        </div>
+
+        <div class="relative z-10">
+          <div class="grid grid-cols-2 gap-3 sm:gap-4">
+            <div class="hero-highlight-card rounded-[22px] p-2.5 sm:p-3.5 -rotate-3">
+              <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80" alt="Look editorial" class="w-full h-52 sm:h-64 object-cover rounded-[18px]" />
+            </div>
+            <div class="space-y-3 sm:space-y-4 pt-2 sm:pt-4">
+              <div class="hero-highlight-card rounded-[22px] p-2.5 sm:p-3.5 rotate-2">
+                <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80" alt="Detalle de estilo" class="w-full h-28 sm:h-36 object-cover rounded-[16px]" />
+              </div>
+              <div class="bg-gema-dark text-white rounded-[22px] p-3.5 shadow-xl">
+                <p class="text-[9px] uppercase tracking-[0.22em] text-pink-200">Curación</p>
+                <p class="mt-2 text-2xl sm:text-3xl font-serif leading-none">New<br>Edition</p>
+                <div class="mt-3 flex items-center justify-between text-[10px] sm:text-[11px] text-pink-100">
+                  <span>Selección diaria</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Catalog Content -->
+  <main class="flex-grow max-w-7xl mx-auto px-1.5 sm:px-4 w-full pt-4 sm:pt-6">
+    
+    <div class="flex items-center justify-between mb-2 px-1">
+      <div class="flex items-center gap-1.5">
+        <span class="w-2 h-2 rounded-full bg-gema-fuchsia inline-block"></span>
+        <h1 id="catalogTitle" class="text-xs sm:text-sm font-bold text-gema-dark uppercase tracking-wider">
+          Todos los Productos
+        </h1>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <span id="productCounter" class="text-[10px] font-semibold text-gema-purple bg-gema-softPink px-2 py-0.5 rounded-full">
+          0 piezas
+        </span>
+      </div>
+    </div>
+
+    <!-- 
+      EXACT REQUIREMENT:
+      - 3 columns per row on mobile (grid-cols-3)
+      - Image ratio restricted to max 3:4 width or 4:3 height (using aspect-[3/4] strict)
+      - Touching image or card opens detail and scrolls smoothly
+      - Single unit inventory indicator
+      - 4-digit codes visible
+    -->
+    <div id="productsGrid" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-1.5 sm:gap-3">
+      <!-- Injected via JS -->
+    </div>
+
+  </main>
+
+  <!-- Product Detail Modal -->
+  <div id="quickModal" class="fixed inset-0 z-50 flex items-center justify-center p-3 bg-black/65 backdrop-blur-xs hidden opacity-0 transition-opacity duration-200">
+    <div class="bg-white rounded-3xl max-w-xs sm:max-w-sm w-full overflow-hidden shadow-2xl relative max-h-[92vh] flex flex-col">
+      <button onclick="closeQuickModal()" class="absolute top-2.5 right-2.5 z-20 w-8 h-8 rounded-full bg-black/45 text-white flex items-center justify-center hover:bg-black/70 transition-colors">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+
+      <div class="relative bg-gema-softPink aspect-[3/4] w-full overflow-hidden">
+        <img id="modalImg" src="" alt="Producto" class="w-full h-full object-cover">
+        <span id="modalCodeBadge" class="absolute top-2.5 left-2.5 bg-gema-dark/85 text-white text-[10px] font-mono font-bold px-2 py-0.5 rounded-md shadow"></span>
+      </div>
+
+      <div class="p-3.5 flex-1 flex flex-col justify-between overflow-y-auto">
+        <div>
+          <div class="flex items-center justify-between gap-2">
+            <span id="modalCategory" class="text-[9px] font-bold text-gema-purple uppercase tracking-wider"></span>
+            <span id="modalBadge" class="text-[8px] font-bold text-amber-700 bg-amber-50 border border-amber-200 px-1.5 py-0.5 rounded"></span>
+          </div>
+          <h3 id="modalTitle" class="text-sm font-bold text-gema-dark leading-tight mt-1"></h3>
+
+          <div id="modalStars" class="mt-1.5 flex items-center gap-1"></div>
+          
+          <div class="flex items-baseline gap-1.5 mt-2">
+            <span class="text-xs text-stone-400 font-medium">Precio:</span>
+            <span id="modalPrice" class="text-xl font-extrabold text-gema-fuchsia"></span>
+          </div>
+
+          <p id="modalDesc" class="text-stone-600 text-xs mt-2 leading-relaxed"></p>
+        </div>
+
+        <div class="mt-3 pt-2 border-t border-stone-100 flex gap-2">
+          <button id="modalActionBtn" class="w-full py-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-all">
+            <!-- Dynamic via JS -->
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Drawer Component -->
+  <div id="cartOverlay" class="fixed inset-0 bg-black/60 z-50 hidden opacity-0 transition-opacity duration-300 backdrop-blur-xs" onclick="toggleCartDrawer(false)"></div>
+  
+  <aside id="cartDrawer" class="fixed top-0 right-0 w-full sm:w-[420px] h-full bg-white z-50 shadow-2xl flex flex-col transform translate-x-full cart-drawer-slide">
+    
+    <!-- Drawer Header -->
+    <div class="p-3 border-b border-gema-softPinkDark flex items-center justify-between bg-gema-softPink">
+      <div class="flex items-center gap-2">
+        <div class="w-7 h-7 rounded-lg bg-gema-fuchsia text-white flex items-center justify-center text-xs">
+          <i class="fa-solid fa-bag-shopping"></i>
+        </div>
+        <div>
+          <h2 class="text-sm font-bold text-gema-dark">Mi Bolsa de Compras</h2>
+          <span id="drawerItemsBadge" class="text-[10px] text-gema-purple font-semibold">0 piezas</span>
+        </div>
+      </div>
+      <button onclick="toggleCartDrawer(false)" class="p-1.5 text-stone-500 hover:text-black">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+    </div>
+
+    <!-- Tiered Shipping Explanation & Dynamic Progress Bar (Specified only in cart) -->
+    <div class="bg-white px-3.5 py-2 border-b border-stone-100 text-xs">
+      <div class="flex justify-between text-[11px] font-semibold text-gema-dark mb-1">
+        <span id="shippingText">Envío Gratis desde $25.00</span>
+        <span id="shippingPercentage" class="text-gema-fuchsia font-bold">0%</span>
+      </div>
+      <div class="w-full bg-stone-100 h-2 rounded-full overflow-hidden">
+        <div id="shippingProgressBar" class="bg-gradient-to-r from-gema-purple to-gema-fuchsia h-full w-0 transition-all duration-300"></div>
+      </div>
+      <p class="text-[9px] text-stone-400 mt-1">Tarifas: $1 a $21.99 = $4 envio | $22 a $24.99 = $3 envio | $25+ = GRATIS</p>
+    </div>
+
+    <!-- Cart Products List (Non-cumulative items, stock=1) -->
+    <div id="cartDrawerList" class="flex-1 overflow-y-auto p-3 space-y-2 divide-y divide-stone-100">
+      <!-- Items populated by JS -->
+    </div>
+
+    <!-- Checkout Customer Details, Payment Selection & Exact Tiered Math -->
+    <div class="p-3 border-t border-gema-softPinkDark bg-[#fffdfd] space-y-2">
+      
+      <!-- Customer Inputs -->
+      <div class="grid grid-cols-2 gap-1.5">
+        <input 
+          type="text" 
+          id="custName" 
+          placeholder="Tu Nombre..." 
+          class="w-full bg-white border border-stone-300 rounded-lg text-xs p-1.5 focus:outline-none focus:border-gema-fuchsia"
+        />
+        <input 
+          type="text" 
+          id="custLocation" 
+          placeholder="Dirección / Ciudad..." 
+          class="w-full bg-white border border-stone-300 rounded-lg text-xs p-1.5 focus:outline-none focus:border-gema-fuchsia"
+        />
+      </div>
+
+      <!-- Payment Method -->
+      <div class="bg-gema-softPink/60 p-1.5 rounded-xl text-[11px]">
+        <div class="flex items-center justify-between mb-1">
+          <span class="font-bold text-gema-dark text-[10px]">Método de Pago:</span>
+          <button onclick="copyYappyNumber()" class="text-[9px] text-[#0094b6] font-semibold underline">Yappy: 6978-9005</button>
+        </div>
+        <div class="grid grid-cols-2 gap-1.5">
+          <label class="flex items-center gap-1.5 bg-white p-1.5 rounded-lg border border-stone-200 cursor-pointer">
+            <input type="radio" name="paymentMethod" value="yappy" checked class="text-gema-fuchsia focus:ring-0">
+            <span class="text-[10px] font-medium leading-tight">
+              <strong class="text-[#0094b6]">Yappy</strong>
+              <span class="text-stone-500 text-[9px] block">6978-9005</span>
+            </span>
+          </label>
+          <label class="flex items-center gap-1.5 bg-white p-1.5 rounded-lg border border-stone-200 cursor-pointer">
+            <input type="radio" name="paymentMethod" value="efectivo" class="text-gema-fuchsia focus:ring-0">
+            <span class="text-[10px] font-medium leading-tight">
+              <strong class="text-emerald-700">Efectivo</strong>
+              <span class="text-stone-500 text-[9px] block">Contra entrega</span>
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Seller Target (Irene default, Francesco secondary) -->
+      <div class="bg-pink-50/70 p-1.5 rounded-xl text-[11px] border border-pink-100">
+        <span class="font-semibold text-gema-dark block text-[10px] mb-1">Atención del pedido:</span>
+        <div class="grid grid-cols-2 gap-1.5">
+          <label class="flex items-center gap-1 bg-white p-1.5 rounded-lg border-2 border-gema-fuchsia cursor-pointer">
+            <input type="radio" name="sellerChoice" value="irene" checked class="text-gema-fuchsia focus:ring-0">
+            <span class="text-[10px] leading-tight">
+              <strong>Irene (Predet.)</strong>
+              <span class="text-stone-500 text-[9px] block">6438-2676</span>
+            </span>
+          </label>
+          <label class="flex items-center gap-1 bg-white p-1.5 rounded-lg border border-stone-200 cursor-pointer">
+            <input type="radio" name="sellerChoice" value="francesco" class="text-gema-fuchsia focus:ring-0">
+            <span class="text-[10px] leading-tight">
+              <span>Francesco</span>
+              <span class="text-stone-500 text-[9px] block">6590-5100</span>
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Cost Breakdown with exact tiers: $1-$21.99 = $4, $22-$24.99 = $3, $25+ = $0 -->
+      <div class="space-y-1 text-xs pt-1 border-t border-stone-200">
+        <div class="flex justify-between text-stone-600 text-[11px]">
+          <span>Subtotal</span>
+          <span id="drawerSubtotal" class="font-bold text-gema-dark">$0.00</span>
+        </div>
+        <div class="flex justify-between text-stone-600 text-[11px]">
+          <span>Costo de Envío</span>
+          <span id="drawerShippingCost" class="font-bold text-gema-fuchsia">$0.00</span>
+        </div>
+        <div class="flex justify-between text-sm font-extrabold text-gema-dark pt-1 border-t border-stone-200">
+          <span>Total a Pagar</span>
+          <span id="drawerTotal" class="text-gema-fuchsia text-base">$0.00</span>
+        </div>
+      </div>
+
+      <!-- Checkout to WhatsApp -->
+      <button 
+        onclick="sendOrderWhatsApp()" 
+        class="w-full bg-emerald-600 hover:bg-emerald-700 active:scale-[0.98] text-white py-2.5 px-3 rounded-xl font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-all"
+      >
+        <i class="fa-brands fa-whatsapp text-base"></i>
+        <span>Enviar Pedido por WhatsApp</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Toast Notification Alert -->
+  <div id="toastAlert" class="fixed bottom-16 sm:bottom-6 left-1/2 -translate-x-1/2 z-50 bg-gema-dark text-white px-4 py-2 rounded-full shadow-xl flex items-center gap-2 text-xs opacity-0 pointer-events-none transition-all duration-300">
+    <div class="w-4 h-4 rounded-full bg-gema-fuchsia flex items-center justify-center text-white text-[9px]">
+      <i class="fa-solid fa-check"></i>
+    </div>
+    <span id="toastAlertText">Mensaje</span>
+  </div>
+
+  <!-- Floating Mobile Navigation -->
+  <nav class="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-gema-softPinkDark py-1.5 px-3 flex items-center justify-around shadow-lg">
+    <button onclick="setCategory('all')" class="flex flex-col items-center text-gema-dark focus:text-gema-fuchsia">
+      <i class="fa-solid fa-gem text-xs"></i>
+      <span class="text-[9px] font-semibold mt-0.5">Catálogo</span>
+    </button>
+    <button onclick="setCategory('carteras')" class="flex flex-col items-center text-stone-500 focus:text-gema-fuchsia">
+      <i class="fa-solid fa-bag-shopping text-xs"></i>
+      <span class="text-[9px] font-semibold mt-0.5">Carteras</span>
+    </button>
+    <button onclick="setCategory('perfumes')" class="flex flex-col items-center text-stone-500 focus:text-gema-fuchsia">
+      <i class="fa-solid fa-spray-can-sparkles text-xs"></i>
+      <span class="text-[9px] font-semibold mt-0.5">Perfumes</span>
+    </button>
+    <button onclick="setCategory('ps4')" class="flex flex-col items-center text-stone-500 focus:text-gema-fuchsia">
+      <i class="fa-solid fa-gamepad text-xs"></i>
+      <span class="text-[9px] font-semibold mt-0.5">PS4 (6)</span>
+    </button>
+    <button onclick="toggleCartDrawer(true)" class="relative flex flex-col items-center text-gema-fuchsia">
+      <i class="fa-solid fa-cart-shopping text-xs"></i>
+      <span class="text-[9px] font-bold mt-0.5">Bolsa</span>
+      <span id="bottomNavCartCount" class="absolute -top-1 -right-2 bg-gema-purple text-white text-[9px] font-bold rounded-full w-3.5 h-3.5 flex items-center justify-center">0</span>
+    </button>
+  </nav>
+
+  <!-- Footer -->
+  <footer class="boutique-footer text-white pt-7 pb-20 sm:pb-8 mt-8 text-xs">
+    <div class="max-w-7xl mx-auto px-4 grid gap-4 sm:grid-cols-3 text-left">
+      <div class="flex items-center gap-3">
+        <div class="brand-mark rounded-full p-1.5 bg-white/5">
+          <img src="img/logo.jpeg" alt="IRÉ logo" class="h-10 w-10 rounded-full object-cover" />
+        </div>
+        <div>
+          <p class="font-serif text-2xl tracking-[0.18em] text-white">IRÉ</p>
+          <p class="mt-1 text-[11px] text-stone-300">Estilo que transforma.</p>
+        </div>
+      </div>
+      <div>
+        <p class="text-[10px] uppercase tracking-[0.22em] text-pink-200 font-semibold">Contacto</p>
+        <p class="mt-2 text-[11px] text-stone-300">Vendedora: Irene (+507 6438-2676)</p>
+        <p class="mt-1 text-[11px] text-stone-300">Yappy: 6978-9005</p>
+      </div>
+      <div>
+        <p class="text-[10px] uppercase tracking-[0.22em] text-pink-200 font-semibold">Atención</p>
+        <p class="mt-2 text-[11px] text-stone-300">Pedidos por WhatsApp · Envíos en Panamá</p>
+        <p class="mt-1 text-[11px] text-stone-300">Lunes a domingo · Atención personalizada</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const STORE_CONFIG = {
+      shopName: 'IRÉ',
+      defaultSeller: {
+        name: 'Irene',
+        phone: '6438-2676',
+        whatsapp: '50764382676'
+      },
+      secondarySeller: {
+        name: 'Francesco',
+        phone: '6590-5100',
+        whatsapp: '50765905100'
+      },
+      yappyNumber: '6978-9005',
+      freeShippingThreshold: 25,
+      shippingTiers: [
+        { min: 1, max: 21.99, cost: 4 },
+        { min: 22, max: 24.99, cost: 3 },
+        { min: 25, max: Infinity, cost: 0 }
+      ],
+      defaultSort: 'position'
+    };
+
+    const PRODUCT_CATEGORIES = [
+      { id: 'carteras', label: 'Carteras & Bolsos' },
+      { id: 'perfumes', label: 'Perfumes' },
+      { id: 'lbel', label: "L'BEL" },
+      { id: 'ps4', label: 'PS4' },
+      { id: 'hogar', label: 'Hogar' },
+      { id: 'accesorios', label: 'Otros' }
+    ];
+
+    /*
+      Plantilla editable de productos.
+      Solo modifica este bloque para cambiar:
+      - código
+      - nombre
+      - categoría
+      - precio
+      - estrellas (7, 8, 9 o 10)
+      - imagen
+      - descripción
+      - etiqueta opcional
+    */
+    const PRODUCTS = [
+      { code: '1001', name: 'Cartera Crossbody Rosa Pastel', category: 'carteras', price: 18.50, rating: 9, image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=450&q=80', description: 'Cartera compacta crossbody con textura suave en rosa pastel, herrajes dorados y correa ajustable.', badge: 'Nuevo' },
+      { code: '1002', name: 'Perfume Floral Soft', category: 'perfumes', price: 24.00, rating: 9, image: 'https://images.unsplash.com/photo-1528740561666-dc2479dc08ab?auto=format&fit=crop&w=450&q=80', description: 'Fragancia femenina fresca y elegante con notas florales suaves y un acabado envolvente.', badge: 'Best seller' },
+      { code: '1003', name: 'Set de Cuidado L’BEL', category: 'lbel', price: 21.00, rating: 8, image: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=450&q=80', description: 'Kit elegante para rutina de cuidado personal, ideal para regalo o uso diario.', badge: 'Oferta' },
+      { code: '1004', name: 'Producto en blanco 1004', category: 'carteras', price: 19.90, rating: 8, image: 'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=450&q=80', description: 'Texto editable. Reemplaza esta información por el nombre, precio y descripción final del producto.', badge: 'Editable' },
+      { code: '1005', name: 'Producto en blanco 1005', category: 'carteras', price: 16.50, rating: 7, image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=450&q=80', description: 'Producto pendiente de edición. Ajusta nombre, imagen, precio y descripción según corresponda.', badge: '' },
+      { code: '1006', name: 'Producto en blanco 1006', category: 'carteras', price: 22.00, rating: 8, image: 'https://images.unsplash.com/photo-1594223274512-ad4803739b7c?auto=format&fit=crop&w=450&q=80', description: 'Disponible como plantilla base. Personaliza este bloque con tus datos reales para activar la pieza.', badge: 'Nuevo' },
+      { code: '1007', name: 'Producto en blanco 1007', category: 'carteras', price: 17.80, rating: 7, image: 'https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=450&q=80', description: 'Completa la información del producto para añadirlo a la colección.', badge: '' },
+      { code: '1008', name: 'Producto en blanco 1008', category: 'carteras', price: 26.00, rating: 9, image: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=450&q=80', description: 'Plantilla lista para editar. Cambia el nombre, categoría, precio y otra información relevante.', badge: 'Top' },
+      { code: '1009', name: 'Producto en blanco 1009', category: 'carteras', price: 18.30, rating: 8, image: 'https://images.unsplash.com/photo-1529841830900-a3d7d0ea3f9d?auto=format&fit=crop&w=450&q=80', description: 'Producto base para completar con la información final del inventario.', badge: '' },
+      { code: '1010', name: 'Producto en blanco 1010', category: 'carteras', price: 21.50, rating: 8, image: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=450&q=80', description: 'Se puede reutilizar para crear nuevas variantes de la colección.', badge: 'Editable' },
+      { code: '1011', name: 'Producto en blanco 1011', category: 'carteras', price: 20.00, rating: 7, image: 'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=450&q=80', description: 'Copia y reemplaza los textos para convertir esta tarjeta en un producto real.', badge: '' },
+      { code: '1012', name: 'Producto en blanco 1012', category: 'carteras', price: 25.50, rating: 9, image: 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=450&q=80', description: 'Plantilla editable para una nueva pieza del catálogo de accesorios.', badge: 'Nuevo' },
+      { code: '1013', name: 'Producto en blanco 1013', category: 'carteras', price: 15.00, rating: 7, image: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=450&q=80', description: 'Este bloque está preparado para reemplazar los datos por la información final del producto.', badge: '' },
+      { code: '1014', name: 'Producto en blanco 1014', category: 'carteras', price: 27.00, rating: 9, image: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=450&q=80', description: 'Ajusta marca, material, precio y detalle para dejarlo listo para publicar.', badge: 'Top' },
+      { code: '1015', name: 'Producto en blanco 1015', category: 'carteras', price: 14.90, rating: 7, image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=450&q=80', description: 'Template listo para personalizar con información de la pieza final.', badge: '' },
+      { code: '1016', name: 'Producto en blanco 1016', category: 'carteras', price: 23.80, rating: 8, image: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=450&q=80', description: 'Reemplaza este texto por la descripción real del producto y su valor final.', badge: 'Nuevo' },
+      { code: '1017', name: 'Producto en blanco 1017', category: 'perfumes', price: 28.00, rating: 9, image: 'https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=450&q=80', description: 'Plantilla de fragancia. Cambia la nota, intensidad y descripción para activar este producto.', badge: 'Best seller' },
+      { code: '1018', name: 'Producto en blanco 1018', category: 'perfumes', price: 30.00, rating: 9, image: 'https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=450&q=80', description: 'Texto editable para añadir la información del perfume real y su presentación.', badge: 'Nuevo' },
+      { code: '1019', name: 'Producto en blanco 1019', category: 'perfumes', price: 26.50, rating: 8, image: 'https://images.unsplash.com/photo-1617897903246-719242758050?auto=format&fit=crop&w=450&q=80', description: 'Producto base para completar con los datos del lanzamiento o oferta actual.', badge: '' },
+      { code: '1020', name: 'Producto en blanco 1020', category: 'perfumes', price: 31.00, rating: 9, image: 'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=450&q=80', description: 'Crea una nueva variante con imagen, precio y descripción personalizada.', badge: 'Top' },
+      { code: '1021', name: 'Producto en blanco 1021', category: 'perfumes', price: 29.00, rating: 8, image: 'https://images.unsplash.com/photo-1563170351-be82bc888aa4?auto=format&fit=crop&w=450&q=80', description: 'Ficha lista para editar: nombre, precio, notas y detalles del aroma.', badge: '' },
+      { code: '1022', name: 'Producto en blanco 1022', category: 'perfumes', price: 35.00, rating: 10, image: 'https://images.unsplash.com/photo-1528740561666-dc2479dc08ab?auto=format&fit=crop&w=450&q=80', description: 'Personaliza la descripción para hacerlo coincidir con la propuesta de la marca.', badge: 'Premium' },
+      { code: '1023', name: 'Producto en blanco 1023', category: 'perfumes', price: 24.80, rating: 8, image: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=450&q=80', description: 'Producto editable con una imagen base para poner tu oferta real o nueva llegada.', badge: '' },
+      { code: '1024', name: 'Producto en blanco 1024', category: 'perfumes', price: 32.50, rating: 9, image: 'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?auto=format&fit=crop&w=450&q=80', description: 'Completa este espacio con la información de la fragancia final.', badge: 'Nuevo' },
+      { code: '1025', name: 'Producto en blanco 1025', category: 'perfumes', price: 27.50, rating: 8, image: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=450&q=80', description: 'Se puede convertir en un producto real con solo actualizar los datos de la pieza.', badge: '' },
+      { code: '1026', name: 'Producto en blanco 1026', category: 'perfumes', price: 33.00, rating: 9, image: 'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=450&q=80', description: 'Plantilla lista para editar y dejarla lista para publicación.', badge: 'Editable' },
+      { code: '1027', name: 'Producto en blanco 1027', category: 'lbel', price: 18.00, rating: 7, image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=450&q=80', description: 'Ficha de ejemplo para una línea de cuidado o belleza. Ajusta lo que necesites.', badge: '' },
+      { code: '1028', name: 'Producto en blanco 1028', category: 'lbel', price: 19.50, rating: 8, image: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=450&q=80', description: 'Reemplaza esta información con el nombre exacto y detalle del pack.', badge: 'Nuevo' },
+      { code: '1029', name: 'Producto en blanco 1029', category: 'lbel', price: 20.90, rating: 8, image: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=450&q=80', description: 'Texto base para completar con la información de belleza final de la línea.', badge: '' },
+      { code: '1030', name: 'Producto en blanco 1030', category: 'lbel', price: 22.40, rating: 9, image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=450&q=80', description: 'Copia la estructura del producto y actualiza nombre, precio y descripción.', badge: 'Top' },
+      { code: '1031', name: 'Producto en blanco 1031', category: 'lbel', price: 17.00, rating: 7, image: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=450&q=80', description: 'Plantilla lista para convertir en una variante de la colección L’BEL.', badge: '' },
+      { code: '1032', name: 'Producto en blanco 1032', category: 'lbel', price: 24.20, rating: 8, image: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=450&q=80', description: 'Ajusta la información de la línea para dejar la pieza lista para publicar.', badge: 'Editable' },
+      { code: '1033', name: 'Producto en blanco 1033', category: 'lbel', price: 21.80, rating: 8, image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=450&q=80', description: 'Se puede usar como base para crear nuevas ofertas o kits de belleza.', badge: '' },
+      { code: '1034', name: 'Producto en blanco 1034', category: 'lbel', price: 18.90, rating: 7, image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=450&q=80', description: 'Completa la información de este bloque para convertirlo en un producto activo.', badge: 'Nuevo' },
+      { code: '1035', name: 'Producto en blanco 1035', category: 'ps4', price: 16.50, rating: 7, image: 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?auto=format&fit=crop&w=450&q=80', description: 'Elemento base para accesorios de consola. Cambia nombre, precio y detalle final.', badge: '' },
+      { code: '1036', name: 'Producto en blanco 1036', category: 'ps4', price: 19.90, rating: 8, image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=450&q=80', description: 'Plantilla lista para editar con el producto definitivo que deseas vender.', badge: 'Editable' },
+      { code: '1037', name: 'Producto en blanco 1037', category: 'ps4', price: 15.00, rating: 7, image: 'https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=450&q=80', description: 'Se actualiza fácilmente con la información exacta del accesorio.', badge: '' },
+      { code: '1038', name: 'Producto en blanco 1038', category: 'ps4', price: 22.50, rating: 9, image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=450&q=80', description: 'Ficha editable para nueva pieza de la colección de juegos y accesorios.', badge: 'Top' },
+      { code: '1039', name: 'Producto en blanco 1039', category: 'ps4', price: 17.20, rating: 7, image: 'https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?auto=format&fit=crop&w=450&q=80', description: 'Rellena con información del item, marca y descripción para dejarlo listo.', badge: '' },
+      { code: '1040', name: 'Producto en blanco 1040', category: 'ps4', price: 28.00, rating: 9, image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=450&q=80', description: 'Plantilla base para un producto de referencia aún no publicado.', badge: 'Nuevo' },
+      { code: '1041', name: 'Producto en blanco 1041', category: 'ps4', price: 24.00, rating: 8, image: 'https://images.unsplash.com/photo-1578301978666-7f0d4b9d6d0a?auto=format&fit=crop&w=450&q=80', description: 'Cambiar nombre, precio y foto para dejarlo activo en el catálogo.', badge: '' },
+      { code: '1042', name: 'Producto en blanco 1042', category: 'hogar', price: 14.00, rating: 7, image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=450&q=80', description: 'Plantilla útil para decoración o artículos del hogar.', badge: '' },
+      { code: '1043', name: 'Producto en blanco 1043', category: 'hogar', price: 18.60, rating: 8, image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=450&q=80', description: 'Este producto aún está en blanco; actualiza los datos para usarlo.', badge: 'Editable' },
+      { code: '1044', name: 'Producto en blanco 1044', category: 'hogar', price: 20.00, rating: 8, image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=450&q=80', description: 'Ficha lista para reemplazar la información final del producto.', badge: '' },
+      { code: '1045', name: 'Producto en blanco 1045', category: 'hogar', price: 23.00, rating: 9, image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=450&q=80', description: 'Artículo de hogar en plantilla. Cambia detalles y precio para activarlo.', badge: 'Top' },
+      { code: '1046', name: 'Producto en blanco 1046', category: 'accesorios', price: 12.50, rating: 7, image: 'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=450&q=80', description: 'Plantilla de accesorio base. Reemplaza por el nombre real y la información del producto.', badge: '' },
+      { code: '1047', name: 'Producto en blanco 1047', category: 'accesorios', price: 13.90, rating: 8, image: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=450&q=80', description: 'Ficha editable para accesorios o detalles pequeños de la colección.', badge: 'Nuevo' },
+      { code: '1048', name: 'Producto en blanco 1048', category: 'accesorios', price: 11.00, rating: 7, image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=450&q=80', description: 'Producto base para completar con la información final del accesorio.', badge: '' },
+    ];
+
+    const PRODUCT_LOOKUP = PRODUCTS.map((product, index) => ({ ...product, position: index }));
+    let cart = JSON.parse(localStorage.getItem('gemashop_cart_v4') || '[]');
+    let activeCategory = 'all';
+    let activeSort = STORE_CONFIG.defaultSort;
+
+    window.addEventListener('scroll', () => {
+      const topWrapper = document.getElementById('topAnnouncementsWrapper');
+      if (topWrapper) {
+        if (window.scrollY > 4) {
+          topWrapper.classList.add('collapsed');
+        } else {
+          topWrapper.classList.remove('collapsed');
+        }
+      }
+    }, { passive: true });
+
+    function getCategoryLabel(categoryId) {
+      const category = PRODUCT_CATEGORIES.find(item => item.id === categoryId);
+      return category ? category.label : 'General';
+    }
+
+    function renderStars(rating) {
+      const safeRating = Math.max(7, Math.min(10, Number(rating) || 7));
+      const filled = safeRating >= 10 ? 5 : safeRating >= 9 ? 4 : safeRating >= 8 ? 4 : 3;
+      const stars = Array.from({ length: 5 }, (_, index) => index < filled ? '★' : '☆').join('');
+      return `
+        <span class="inline-flex items-center gap-1">
+          <span class="text-amber-500 text-[10px] sm:text-[11px] tracking-wide">${stars}</span>
+          <span class="text-[9px] text-stone-500 font-semibold">${safeRating}/10</span>
+        </span>
+      `;
+    }
+
+    function renderCategoryFilters() {
+      const container = document.getElementById('categoryFilters');
+      if (!container) return;
+
+      const buttons = [
+        `<button onclick="setCategory('all')" data-cat="all" class="cat-pill active shrink-0 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-gema-fuchsia text-white transition-all shadow-xs">Todos (${PRODUCTS.length})</button>`
+      ];
+
+      PRODUCT_CATEGORIES.forEach(category => {
+        const count = PRODUCTS.filter(product => product.category === category.id).length;
+        buttons.push(`
+          <button onclick="setCategory('${category.id}')" data-cat="${category.id}" class="cat-pill shrink-0 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-white text-gema-dark border border-gema-softPinkDark transition-all">
+            ${category.label} (${count})
+          </button>
+        `);
+      });
+
+      container.innerHTML = buttons.join('');
+    }
+
+    function getFilteredProducts() {
+      let items = [...PRODUCT_LOOKUP];
+
+      if (activeCategory !== 'all') {
+        items = items.filter(product => product.category === activeCategory);
+      }
+
+      switch (activeSort) {
+        case 'price-asc':
+          items.sort((a, b) => a.price - b.price);
+          break;
+        case 'price-desc':
+          items.sort((a, b) => b.price - a.price);
+          break;
+        case 'rating-desc':
+          items.sort((a, b) => b.rating - a.rating);
+          break;
+        default:
+          items.sort((a, b) => a.position - b.position);
+          break;
+      }
+
+      return items;
+    }
+
+    function renderProducts() {
+      const grid = document.getElementById('productsGrid');
+      const counter = document.getElementById('productCounter');
+      if (!grid || !counter) return;
+
+      const filtered = getFilteredProducts();
+      counter.textContent = `${filtered.length} piezas`;
+
+      grid.innerHTML = filtered.map(product => {
+        const inCart = isItemInCart(product.code);
+        return `
+          <article class="product-shell overflow-hidden flex flex-col justify-between group">
+            <div class="product-image-wrap relative aspect-[3/4] w-full overflow-hidden cursor-pointer" onclick="openQuickModal('${product.code}')">
+              <img src="${product.image}" alt="${product.name}" loading="lazy" class="product-image w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/300x400/fce7f3/db2777?text=%23${product.code}'" />
+              <span class="absolute top-2 left-2 bg-gema-dark/85 text-white font-mono text-[7px] xs:text-[8px] font-bold px-1.5 py-0.5 rounded-full shadow-xs">#${product.code}</span>
+              ${product.badge ? `<span class="absolute bottom-2 left-2 bg-white/90 text-gema-fuchsia text-[6.5px] xs:text-[7.5px] font-bold px-2 py-1 rounded-full shadow-sm">${product.badge}</span>` : ''}
+            </div>
+
+            <div class="p-2 sm:p-2.5 flex-1 flex flex-col justify-between bg-white">
+              <div onclick="openQuickModal('${product.code}')" class="cursor-pointer">
+                <span class="text-[7.5px] xs:text-[8.5px] font-bold text-gema-purple uppercase tracking-[0.14em] block truncate">${getCategoryLabel(product.category)}</span>
+                <h3 class="product-title-clamp text-[9.5px] xs:text-[11px] font-semibold text-gema-dark mt-1 leading-snug" title="${product.name}">${product.name}</h3>
+                <div class="mt-1">${renderStars(product.rating)}</div>
+              </div>
+
+              <div class="mt-2 pt-2 border-t border-stone-100 flex items-center justify-between gap-1">
+                <span class="price-tag text-[11px] xs:text-[13px] font-extrabold leading-none rounded-full px-2 py-1">$${product.price.toFixed(2)}</span>
+                ${inCart ? `
+                  <button onclick="toggleItemInCart('${product.code}')" title="En bolsa - Toca para quitar" class="h-7 px-2.5 rounded-full bg-emerald-600 text-white font-semibold text-[8.5px] flex items-center gap-1 active:scale-90 transition-all shadow-xs">
+                    <i class="fa-solid fa-check text-[8px]"></i>
+                    <span class="hidden xs:inline">Listo</span>
+                  </button>
+                ` : `
+                  <button onclick="toggleItemInCart('${product.code}')" title="Agregar a la bolsa" class="w-7 h-7 rounded-full bg-gema-softPink text-gema-fuchsia hover:bg-gema-fuchsia hover:text-white flex items-center justify-center text-xs active:scale-90 transition-all shadow-sm">
+                    <i class="fa-solid fa-plus text-[9px]"></i>
+                  </button>
+                `}
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function setCategory(category) {
+      activeCategory = category;
+
+      document.querySelectorAll('.cat-pill').forEach(button => {
+        const isActive = button.getAttribute('data-cat') === category;
+        button.className = isActive
+          ? 'cat-pill active shrink-0 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-gema-fuchsia text-white transition-all shadow-xs'
+          : 'cat-pill shrink-0 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-white text-gema-dark border border-gema-softPinkDark transition-all';
+      });
+
+      const titleMap = {
+        all: 'Todos los Productos',
+        carteras: 'Carteras & Bolsos',
+        perfumes: 'Perfumes Originales',
+        lbel: "Productos L'BEL",
+        ps4: 'Controles de PS4',
+        hogar: 'Productos para el Hogar',
+        accesorios: 'Accesorios & Variedad'
+      };
+
+      const titleElement = document.getElementById('catalogTitle');
+      if (titleElement) {
+        titleElement.textContent = titleMap[category] || 'Catálogo';
+      }
+
+      renderProducts();
+    }
+
+    function isItemInCart(code) {
+      return cart.some(item => item.code === code);
+    }
+
+    function saveCart() {
+      localStorage.setItem('gemashop_cart_v4', JSON.stringify(cart));
+      updateCartUI();
+      renderProducts();
+    }
+
+    function toggleItemInCart(code) {
+      const product = PRODUCTS.find(item => item.code === code);
+      if (!product) return;
+
+      const existing = cart.find(item => item.code === code);
+      if (existing) {
+        cart = cart.filter(item => item.code !== code);
+        showToast(`Eliminado: #${product.code}`);
+      } else {
+        cart.push({
+          code: product.code,
+          name: product.name,
+          price: product.price,
+          image: product.image,
+          category: product.category
+        });
+        showToast(`Agregado #${product.code} a la bolsa`);
+      }
+
+      saveCart();
+    }
+
+    function removeFromCart(code) {
+      cart = cart.filter(item => item.code !== code);
+      saveCart();
+    }
+
+    function calculateShipping(subtotal) {
+      if (subtotal <= 0) return 0.00;
+      if (subtotal < 22.00) return 4.00;
+      if (subtotal < 25.00) return 3.00;
+      return 0.00;
+    }
+
+    function updateCartUI() {
+      const totalCount = cart.length;
+      const headerCartCount = document.getElementById('headerCartCount');
+      const bottomNavCartCount = document.getElementById('bottomNavCartCount');
+      const drawerItemsBadge = document.getElementById('drawerItemsBadge');
+      if (headerCartCount) headerCartCount.textContent = totalCount;
+      if (bottomNavCartCount) bottomNavCartCount.textContent = totalCount;
+      if (drawerItemsBadge) drawerItemsBadge.textContent = `${totalCount} pieza${totalCount !== 1 ? 's' : ''} única${totalCount !== 1 ? 's' : ''}`;
+
+      const subtotal = cart.reduce((sum, item) => sum + item.price, 0);
+      const shippingCost = calculateShipping(subtotal);
+      const isFreeShipping = subtotal >= 25 && subtotal > 0;
+      const grandTotal = subtotal + shippingCost;
+
+      const progressBar = document.getElementById('shippingProgressBar');
+      const shippingText = document.getElementById('shippingText');
+      const shippingPct = document.getElementById('shippingPercentage');
+      const pct = Math.min(100, Math.round((subtotal / 25) * 100));
+
+      if (progressBar) progressBar.style.width = `${pct}%`;
+      if (shippingPct) shippingPct.textContent = `${pct}%`;
+
+      if (subtotal === 0) {
+        if (shippingText) shippingText.innerHTML = 'Envío <strong>GRATIS</strong> desde <strong>$25.00</strong>';
+      } else if (isFreeShipping) {
+        if (shippingText) shippingText.innerHTML = '<span class="text-emerald-600 font-bold">🎉 ¡Envío GRATIS alcanzado!</span>';
+      } else {
+        const diff = (25.00 - subtotal).toFixed(2);
+        if (shippingText) shippingText.innerHTML = `Faltan <strong class="text-gema-fuchsia">$${diff}</strong> para Envío Gratis`;
+      }
+
+      const drawerSubtotal = document.getElementById('drawerSubtotal');
+      const drawerShippingCost = document.getElementById('drawerShippingCost');
+      const drawerTotal = document.getElementById('drawerTotal');
+      if (drawerSubtotal) drawerSubtotal.textContent = `$${subtotal.toFixed(2)}`;
+      if (drawerShippingCost) drawerShippingCost.textContent = subtotal === 0 ? '$0.00' : isFreeShipping ? 'GRATIS ($0.00)' : `$${shippingCost.toFixed(2)}`;
+      if (drawerTotal) drawerTotal.textContent = `$${grandTotal.toFixed(2)}`;
+
+      const listContainer = document.getElementById('cartDrawerList');
+      if (!listContainer) return;
+
+      if (cart.length === 0) {
+        listContainer.innerHTML = `
+          <div class="text-center py-10 px-4">
+            <div class="w-12 h-12 bg-gema-softPink rounded-full flex items-center justify-center text-gema-fuchsia text-xl mx-auto mb-2"><i class="fa-solid fa-bag-shopping"></i></div>
+            <p class="font-bold text-sm text-gema-dark">Tu bolsa está vacía</p>
+          </div>
+        `;
+        return;
+      }
+
+      listContainer.innerHTML = cart.map(item => `
+        <div class="flex gap-2.5 pt-2 first:pt-0 items-center">
+          <img src="${item.image}" alt="${item.name}" class="w-11 h-14 rounded-lg object-cover bg-stone-100 shrink-0" onerror="this.src='https://placehold.co/100x133?text=Gema'">
+          <div class="flex-1 min-w-0">
+            <div class="flex justify-between items-start">
+              <div>
+                <span class="text-[9px] font-mono font-bold text-gema-fuchsia bg-pink-50 px-1 rounded">#${item.code}</span>
+                <h4 class="text-xs font-semibold text-gema-dark truncate mt-0.5" title="${item.name}">${item.name}</h4>
+              </div>
+              <button onclick="removeFromCart('${item.code}')" class="text-stone-300 hover:text-red-500 text-xs ml-1" title="Eliminar pieza"><i class="fa-solid fa-trash-can"></i></button>
+            </div>
+            <div class="flex items-center justify-between mt-1">
+              <span class="text-xs font-bold text-gema-dark">$${item.price.toFixed(2)}</span>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function toggleCartDrawer(open) {
+      const overlay = document.getElementById('cartOverlay');
+      const drawer = document.getElementById('cartDrawer');
+
+      if (!overlay || !drawer) return;
+
+      if (open) {
+        overlay.classList.remove('hidden');
+        setTimeout(() => {
+          overlay.classList.remove('opacity-0');
+          drawer.classList.remove('translate-x-full');
+        }, 10);
+      } else {
+        overlay.classList.add('opacity-0');
+        drawer.classList.add('translate-x-full');
+        setTimeout(() => {
+          overlay.classList.add('hidden');
+        }, 300);
+      }
+    }
+
+    function copyYappyNumber() {
+      const helper = document.createElement('textarea');
+      document.body.appendChild(helper);
+      helper.value = STORE_CONFIG.yappyNumber.replace(/\D/g, '');
+      helper.select();
+      try {
+        document.execCommand('copy');
+        showToast(`¡Yappy ${STORE_CONFIG.yappyNumber} copiado!`);
+      } catch (error) {
+        showToast(`Yappy: ${STORE_CONFIG.yappyNumber}`);
+      }
+      document.body.removeChild(helper);
+    }
+
+    function sendOrderWhatsApp() {
+      if (cart.length === 0) {
+        showToast('Tu bolsa está vacía');
+        return;
+      }
+
+      const name = document.getElementById('custName').value.trim() || 'Cliente';
+      const location = document.getElementById('custLocation').value.trim() || 'Por coordinar en Panamá';
+
+      const sellerRadio = document.querySelector('input[name="sellerChoice"]:checked');
+      const sellerChoice = sellerRadio ? sellerRadio.value : 'irene';
+      const targetPhone = sellerChoice === 'francesco' ? STORE_CONFIG.secondarySeller.whatsapp : STORE_CONFIG.defaultSeller.whatsapp;
+      const sellerName = sellerChoice === 'francesco' ? STORE_CONFIG.secondarySeller.name : STORE_CONFIG.defaultSeller.name;
+
+      const paymentRadio = document.querySelector('input[name="paymentMethod"]:checked');
+      const payMethod = paymentRadio ? paymentRadio.value : 'yappy';
+      const payText = payMethod === 'yappy' ? `Yappy (al ${STORE_CONFIG.yappyNumber})` : 'Efectivo (contra entrega)';
+
+      const subtotal = cart.reduce((sum, item) => sum + item.price, 0);
+      const shippingCost = calculateShipping(subtotal);
+      const shippingLabel = shippingCost === 0 ? 'GRATIS' : `$${shippingCost.toFixed(2)}`;
+      const grandTotal = subtotal + shippingCost;
+
+      let message = `✨ *NUEVO PEDIDO - GEMASHOP* ✨\n`;
+      message += `Hola ${sellerName}, deseo confirmar la compra de las siguientes piezas:\n\n`;
+      message += `👤 *Cliente:* ${name}\n`;
+      message += `📍 *Lugar de Entrega:* ${location}\n`;
+      message += `💳 *Método de Pago:* ${payText}\n`;
+      message += `--------------------------------\n`;
+
+      cart.forEach((item, index) => {
+        message += `${index + 1}. [Código: #${item.code}] *${item.name}*\n`;
+        message += `   Pieza: *$${item.price.toFixed(2)}*\n`;
+      });
+
+      message += `--------------------------------\n`;
+      message += `📦 *Subtotal:* $${subtotal.toFixed(2)}\n`;
+      message += `🚚 *Costo de Envío:* ${shippingLabel}\n`;
+      message += `💰 *TOTAL A PAGAR:* $${grandTotal.toFixed(2)}\n\n`;
+      message += payMethod === 'yappy' ? `📱 *Yappy:* Transferiré al ${STORE_CONFIG.yappyNumber}.\n` : `💵 *Efectivo:* Pagaré contra entrega.\n`;
+      message += '¿Me confirmas para apartar estas piezas? ¡Gracias!';
+
+      const encoded = encodeURIComponent(message);
+      window.open(`https://wa.me/${targetPhone}?text=${encoded}`, '_blank');
+    }
+
+    function openQuickModal(code) {
+      const product = PRODUCTS.find(item => item.code === code);
+      if (!product) return;
+
+      document.getElementById('modalCodeBadge').textContent = `CÓDIGO: #${product.code}`;
+      document.getElementById('modalTitle').textContent = product.name;
+      document.getElementById('modalCategory').textContent = getCategoryLabel(product.category);
+      document.getElementById('modalPrice').textContent = `$${product.price.toFixed(2)}`;
+      document.getElementById('modalDesc').textContent = product.description;
+      document.getElementById('modalImg').src = product.image;
+      document.getElementById('modalBadge').textContent = product.badge || 'Pieza';
+      document.getElementById('modalStars').innerHTML = renderStars(product.rating);
+
+      const actionBtn = document.getElementById('modalActionBtn');
+      const inCart = isItemInCart(product.code);
+
+      if (inCart) {
+        actionBtn.className = 'w-full py-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 bg-red-100 text-red-600 hover:bg-red-200 transition-colors';
+        actionBtn.innerHTML = '<i class="fa-solid fa-trash-can"></i> Quitar de la Bolsa';
+        actionBtn.onclick = function () {
+          toggleItemInCart(product.code);
+          closeQuickModal();
+        };
+      } else {
+        actionBtn.className = 'w-full py-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 bg-gema-fuchsia hover:bg-gema-fuchsiaDark text-white shadow-xs transition-colors';
+        actionBtn.innerHTML = '<i class="fa-solid fa-cart-plus"></i> Agregar Pieza';
+        actionBtn.onclick = function () {
+          toggleItemInCart(product.code);
+          closeQuickModal();
+          toggleCartDrawer(true);
+        };
+      }
+
+      const modal = document.getElementById('quickModal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        setTimeout(() => modal.classList.remove('opacity-0'), 10);
+      }
+    }
+
+    function closeQuickModal() {
+      const modal = document.getElementById('quickModal');
+      if (!modal) return;
+      modal.classList.add('opacity-0');
+      setTimeout(() => modal.classList.add('hidden'), 200);
+    }
+
+    function showToast(text) {
+      const toast = document.getElementById('toastAlert');
+      const message = document.getElementById('toastAlertText');
+      if (!toast || !message) return;
+      message.textContent = text;
+      toast.classList.remove('opacity-0', 'pointer-events-none');
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'pointer-events-none');
+      }, 2000);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCategoryFilters();
+      renderProducts();
+      updateCartUI();
+
+      const sortSelect = document.getElementById('sortSelect');
+      if (sortSelect) {
+        sortSelect.addEventListener('change', event => {
+          activeSort = event.target.value;
+          renderProducts();
+        });
+      }
+    });
+  </script>
+</body>
+</html>
